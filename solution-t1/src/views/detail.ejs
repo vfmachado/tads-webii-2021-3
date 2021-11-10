@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Prof Vinicius Machado - Detalhes</h1>
+
+  <hr>
+
+  <pre>
+    <%= JSON.stringify(category) %>
+  </pre>
+  
+  <h1><%= category.title %></h1>
+  <h2><%= category.description %></h2>
+  <h3><%= category.createdAt %></h3>
+
+  <ul>
+    <% for (let i = 0; i < category.items.length; i++) { %>
+    <li><%= category.items[i].item %> - Adicionado em: <%= category.items[i].createdAt %></li></a>
+    <% } %>
+  </ul>
+
+  <form action="/add-item/<%= category.title %>" method="POST">
+    <input type="text" name="item">
+    <br>
+    <button type="submit">Adicionar Item</button>
+  </form>
+
+  <button><a href="/">Voltar</a></button>
+</body>
+</html>

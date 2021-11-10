@@ -1,7 +1,16 @@
 import express, { Request, Response } from 'express';
 import { publicRouter } from './routes/public-routes';
-const app = express();
 
+import db from './config/Database';
+
+const result = db.all('select * from users', (err, ok) => {
+  console.log('OK', ok);
+  console.log('Err', err);
+});
+console.log('Result', result);
+
+const app = express();
+ 
 app.use(express.json());
 
 app.set('view engine', 'ejs');
